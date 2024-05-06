@@ -1,33 +1,40 @@
+using System;
 using System.IO;
 using UnityEngine;
 using AnotherFileBrowser.Windows;
+using UnityEngine.Events;
 
 public class TreesFileLoader : MonoBehaviour {
-    [SerializeField] private GameObject objectToSpawn;
     [SerializeField] private char[] separators = { '|' };
+    [SerializeField] private TreeList treeList;
+
+    public static event UnityAction GotSuccessfulLoad;
     
     public void OpenFileBrowser() {
         var bp = new BrowserProperties();
         new FileBrowser().OpenFileBrowser(bp, path => {
             Debug.Log(path);
             LoadTrees(path);
+            GotSuccessfulLoad?.Invoke();
         });
     }
 
     private void LoadTrees(string path) {
         var text = File.ReadAllText(path);
-        var coordinatesList = text.Split(separators);
+        var treeInfo = text.Split(separators);
 
-        foreach (var coordinates in coordinatesList) {
-            var components = coordinates.Split(',');
+        foreach (var tree in treeInfo) {
+            var components = tree.Split(',');
             
             var objCoordinates = new Vector3 {
-                x = float.Parse(components[0]),
-                y = float.Parse(components[1]),
-                z = float.Parse(components[2])
+                x = float.Parse(components[4]),
+                y = 0f,
+                z = float.Parse(components[5])
             };
 
-            Instantiate(objectToSpawn, objCoordinates, Quaternion.identity);
+            var woodTypeIndex = Array.IndexOf(treeList.treeNames, components[0]);
+
+            Instantiate(treeList.treeObjects[woodTypeIndex], objCoordinates, Quaternion.identity);
         }
     }
 }
