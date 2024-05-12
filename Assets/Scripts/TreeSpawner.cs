@@ -35,10 +35,13 @@ public class TreeSpawner : MonoBehaviour {
     public void SpawnTrees() {
         if (_trees == null) return;
         foreach (var tree in _trees) {
-            Instantiate(treeList.treeObjects[tree.WoodTypeIndex], tree.Coordinates, Quaternion.identity);
+            tree.TreeGO = Instantiate(treeList.treeObjects[tree.WoodTypeIndex], tree.Coordinates, Quaternion.identity);
+            // tree.TreeGO.AddComponent<CapsuleCollider>();
 
             Debug.Log("Порода: " + tree.WoodType + " Возраст: " + tree.Age + " Диаметр: " +
                       tree.Diameter + " Высота: " + tree.Height);
+
+            tree.TreeGO.transform.localScale = new Vector3(tree.Diameter, tree.Height / 10, tree.Diameter);
         }
     }
 

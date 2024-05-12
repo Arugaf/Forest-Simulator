@@ -24,6 +24,11 @@ public class TreeExplorer : MonoBehaviour {
             cardContent.Age.text = "Возраст: " + tree.Age.ToString(CultureInfo.InvariantCulture);
             cardContent.Diameter.text = "Диаметр ствола: " + tree.Diameter.ToString(CultureInfo.InvariantCulture);
             cardContent.Height.text = "Высота дерева: " + tree.Height.ToString(CultureInfo.InvariantCulture);
+
+            cardContent.Tree = tree.TreeGO;
+
+            cardContent.Tree.AddComponent<TreeCard>().Tree = cardContent.gameObject;
+            cardContent.Tree.GetComponent<TreeCard>().enabled = true;
         }
     }
 }
