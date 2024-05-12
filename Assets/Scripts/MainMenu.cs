@@ -1,28 +1,17 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainMenu : MonoBehaviour {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject mainPageGroup;
+    [SerializeField] private GameObject builtInModelsPageGroup;
 
-    public void Start() {
-        TreesFileLoader.GotSuccessfulLoad += OnSuccessfulLoad;
+    public void GoToBuiltInModelsPage() {
+        builtInModelsPageGroup.SetActive(true);
+        mainPageGroup.SetActive(false);
     }
 
-    private void Hide() {
-        if (canvas == null) return;
-        canvas.GameObject().SetActive(false);
-    }
-
-    public void Show() {
-        if (canvas == null) return;
-        canvas.GameObject().SetActive(true);
-    }
-
-    public void AppExit() {
-        Application.Quit();
-    }
-
-    private void OnSuccessfulLoad() {
-        Hide();
+    public void GoToMainPage() {
+        mainPageGroup.SetActive(true);
+        builtInModelsPageGroup.SetActive(false);
     }
 }

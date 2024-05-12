@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using AnotherFileBrowser.Windows;
@@ -7,19 +8,29 @@ using UnityEngine.Events;
 public class TreesFileLoader : MonoBehaviour {
     [SerializeField] private char[] separators = { '|' };
     [SerializeField] private TreeList treeList;
+    [SerializeField] private TreeSpawner treeSpawner;
 
-    public static event UnityAction GotSuccessfulLoad;
+    private List<Tree> _trees;
+
+    public static event UnityAction GotSuccessfulTreeListLoad;
 
     public void OpenFileBrowser() {
         var bp = new BrowserProperties();
         new FileBrowser().OpenFileBrowser(bp, path => {
             Debug.Log(path);
             LoadTrees(path);
-            GotSuccessfulLoad?.Invoke();
+
+            if (treeSpawner != null) {
+                treeSpawner.Initialize(_trees);
+            }
+
+            GotSuccessfulTreeListLoad?.Invoke();
         });
     }
 
     private void LoadTrees(string path) {
+        _trees = new List<Tree>();
+        
         var text = File.ReadAllText(path);
         var treeInfo = text.Split(separators);
 
@@ -34,10 +45,15 @@ public class TreesFileLoader : MonoBehaviour {
 
             var woodTypeIndex = Array.IndexOf(treeList.treeNames, components[0]);
 
-            Instantiate(treeList.treeObjects[woodTypeIndex], objCoordinates, Quaternion.identity);
+            // todo: error check
 
-            Debug.Log("Порода: " + treeList.treeNames[woodTypeIndex] + " Возраст: " + components[1] + " Диаметр: " +
-                      components[2] + " Высота: " + components[3]);
+            _trees.Add(new Tree(
+                objCoordinates,
+                treeList.treeNames[woodTypeIndex],
+                woodTypeIndex,
+                float.Parse(components[1]),
+                float.Parse(components[2]),
+                float.Parse(components[3])));
         }
     }
 }
