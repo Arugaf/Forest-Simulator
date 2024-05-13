@@ -602,3 +602,5 @@ sysinfo.txt
 # End of https://www.toptal.com/developers/gitignore/api/unity,csharp,rider,jetbrains+all
 
 Assets/TextMesh*
+Assets/Darth_Artisan*
+Assets/OBJImport*

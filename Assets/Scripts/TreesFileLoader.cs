@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 using AnotherFileBrowser.Windows;
@@ -38,9 +39,9 @@ public class TreesFileLoader : MonoBehaviour {
             var components = tree.Split(',');
 
             var objCoordinates = new Vector3 {
-                x = float.Parse(components[4]),
+                x = float.Parse(components[4], CultureInfo.InvariantCulture),
                 y = 0f,
-                z = float.Parse(components[5])
+                z = float.Parse(components[5], CultureInfo.InvariantCulture)
             };
 
             var woodTypeIndex = -1;
@@ -59,9 +60,9 @@ public class TreesFileLoader : MonoBehaviour {
                 objCoordinates,
                 components[0],
                 woodTypeIndex == -1 ? -1 : woodTypeIndex,
-                float.Parse(components[1]),
-                float.Parse(components[2]),
-                float.Parse(components[3])));
+                float.Parse(components[1], CultureInfo.InvariantCulture),
+                float.Parse(components[2], CultureInfo.InvariantCulture),
+                float.Parse(components[3], CultureInfo.InvariantCulture)));
         }
     }
 }
