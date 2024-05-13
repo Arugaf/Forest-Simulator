@@ -30,7 +30,7 @@ public class TreesFileLoader : MonoBehaviour {
 
     private void LoadTrees(string path) {
         _trees = new List<Tree>();
-        
+
         var text = File.ReadAllText(path);
         var treeInfo = text.Split(separators);
 
@@ -43,14 +43,22 @@ public class TreesFileLoader : MonoBehaviour {
                 z = float.Parse(components[5])
             };
 
-            var woodTypeIndex = Array.IndexOf(treeList.treeNames, components[0]);
+            var woodTypeIndex = -1;
+            var contains = false;
+            if (treeList.customTreeObjects != null) {
+                contains = treeList.customTreeObjects.ContainsKey(components[0]);
+            }
+
+            if (!contains) {
+                woodTypeIndex = Array.IndexOf(treeList.treeNames, components[0]);
+            }
 
             // todo: error check
 
             _trees.Add(new Tree(
                 objCoordinates,
-                treeList.treeNames[woodTypeIndex],
-                woodTypeIndex,
+                components[0],
+                woodTypeIndex == -1 ? -1 : woodTypeIndex,
                 float.Parse(components[1]),
                 float.Parse(components[2]),
                 float.Parse(components[3])));
