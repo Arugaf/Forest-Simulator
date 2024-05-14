@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
@@ -29,6 +26,8 @@ public class TreeExplorer : MonoBehaviour {
 
             cardContent.Tree.AddComponent<TreeCard>().Tree = cardContent.gameObject;
             cardContent.Tree.GetComponent<TreeCard>().enabled = true;
+
+            cardContent.Tree.GetComponent<TreeCard>().SubscribeToPrimaryButtonDown();
         }
     }
 }
