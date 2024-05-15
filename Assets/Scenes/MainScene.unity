@@ -448,6 +448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuGroup: {fileID: 775338409}
+  objectsToPause:
+  - {fileID: 1201458794}
 --- !u!1 &159272778
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbf197a531b02f4bb28263ce35f44ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMaxAge: 200
   treeExplorer: {fileID: 722767899}
   treeList: {fileID: 0}
   slider: {fileID: 525970447}

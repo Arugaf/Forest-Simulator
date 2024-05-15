@@ -60,6 +60,10 @@ public class TreeCard : MonoBehaviour {
     }
 
     public void SelectTree() {
+        if (Time.timeScale == 0) {
+            return;
+        }
+        
         GetComponent<MeshRenderer>().material.color = Tree.GetComponent<TreeCard>().GetSelectedTreeColor();
         Tree.GetComponent<Image>().color = Tree.GetComponent<TreeCard>().GetSelectedCardColor();
         _selected = false;
@@ -71,6 +75,10 @@ public class TreeCard : MonoBehaviour {
     }
 
     private void OnSelectTreeCardEvent() {
+        if (Time.timeScale == 0) {
+            return;
+        }
+        
         _selected = false;
         if (!CompareTag("Tree")) {
             GetComponent<Image>().color = originalCardColor;

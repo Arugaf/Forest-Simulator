@@ -4,6 +4,8 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour {
     [SerializeField] private GameObject pauseMenuGroup;
 
+    [SerializeField] private GameObject[] objectsToPause;
+
     private bool _active = false;
 
     public void Start() {
@@ -30,6 +32,10 @@ public class PauseMenu : MonoBehaviour {
         }
         else {
             ClosePauseMenu();
+        }
+
+        foreach (var go in objectsToPause) {
+            go.SetActive(!go.activeSelf);
         }
     }
 }

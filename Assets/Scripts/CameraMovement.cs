@@ -22,6 +22,10 @@ public class FlyCamera : MonoBehaviour {
     private float totalRun = 1.0f;
 
     void Update() {
+        if (Time.timeScale == 0) {
+            return;
+        }
+        
         if (!Input.GetMouseButton(1)) {
             Cursor.visible = true;
             return;
