@@ -46,8 +46,8 @@ public class TreesFileLoader : MonoBehaviour {
 
             var woodTypeIndex = -1;
             var contains = false;
-            if (treeList.customTreeObjects != null) {
-                contains = treeList.customTreeObjects.ContainsKey(components[0]);
+            if (treeList.CustomTreeObjects != null) {
+                contains = treeList.CustomTreeObjects.ContainsKey(components[0]);
             }
 
             if (!contains) {

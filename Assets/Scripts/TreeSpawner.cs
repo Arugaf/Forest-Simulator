@@ -37,7 +37,7 @@ public class TreeSpawner : MonoBehaviour {
         foreach (var tree in _trees) {
             var treeGO = tree.WoodTypeIndex > -1
                 ? treeList.treeObjects[tree.WoodTypeIndex]
-                : treeList.customTreeObjects[tree.WoodType];
+                : treeList.CustomTreeObjects[tree.WoodType];
             tree.TreeGO = Instantiate(treeGO, tree.Coordinates, Quaternion.identity);
             tree.TreeGO.gameObject.tag = "Tree";
             tree.TreeGO.AddComponent<CapsuleCollider>();

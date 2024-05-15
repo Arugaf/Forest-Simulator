@@ -23,7 +23,7 @@ public class ModelFileLoader : MonoBehaviour {
     }
 
     private void LoadTrees(string[] paths) {
-        treeList.customTreeObjects = new Dictionary<string, GameObject>();
+        treeList.CustomTreeObjects = new Dictionary<string, GameObject>();
         
         foreach (var file in paths) {
             var fileName = Path.GetFileNameWithoutExtension(file);
@@ -32,7 +32,7 @@ public class ModelFileLoader : MonoBehaviour {
             var objFile = new OBJLoader().Load(file);
             DontDestroyOnLoad(objFile);
             
-            treeList.customTreeObjects.Add(fileName, objFile);
+            treeList.CustomTreeObjects.Add(fileName, objFile);
         }
     }
 }

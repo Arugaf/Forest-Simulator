@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 1381650602}
   - component: {fileID: 1381650601}
   m_Layer: 0
-  m_Name: AppStateManager
+  m_Name: App State Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 1403694694}
   - component: {fileID: 1403694693}
   m_Layer: 0
-  m_Name: InputHandler
+  m_Name: Input Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 1571390080}
   - component: {fileID: 1571390079}
   m_Layer: 0
-  m_Name: TreeSpawner
+  m_Name: Tree Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
