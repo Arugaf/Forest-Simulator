@@ -21,6 +21,7 @@ public class TreesFileLoader : MonoBehaviour {
             Debug.Log(path);
             LoadTrees(path);
 
+            treeSpawner = FindObjectOfType<TreeSpawner>();
             if (treeSpawner != null) {
                 treeSpawner.Initialize(_trees);
             }

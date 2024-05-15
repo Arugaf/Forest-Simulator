@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using AnotherFileBrowser.Windows;
-using UnityEngine.Events;
 using Dummiesman;
 
 public class ModelFileLoader : MonoBehaviour {
