@@ -24,6 +24,7 @@ public class TreesFileLoader : MonoBehaviour {
 
     public void OpenFileBrowser() {
         var bp = new BrowserProperties();
+        bp.filter = "csv files (*.csv)|*.csv|All Files (*.*)|*.*";
         new FileBrowser().OpenFileBrowser(bp, path => {
             Debug.Log(path);
             LoadTrees(path);

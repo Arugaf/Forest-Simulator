@@ -11,6 +11,7 @@ public class ModelFileLoader : MonoBehaviour {
 
     public void OpenFileBrowser() {
         var bp = new BrowserProperties();
+        bp.filter = "obj files (*.obj)|*.obj|All Files (*.*)|*.*";
         new FileBrowser().OpenMultiSelectFileBrowser(bp, paths => {
             foreach (var model in paths) {
                 Debug.Log(model);
