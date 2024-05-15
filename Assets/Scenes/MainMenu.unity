@@ -1438,6 +1438,7 @@ MonoBehaviour:
   - "\u0414\u0443\u0431"
   - "\u042F\u0441\u0435\u043D\u044C"
   - "\u0411\u0435\u0440\u0435\u0437\u0430"
+  treeMaxAges: f40100002c01000078000000
 --- !u!114 &1571390080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1734,6 +1735,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4507587774424380406, guid: 3857a353bbda6054bbface9826231f71, type: 3}
   m_PrefabInstance: {fileID: 1702767726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1702767728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1953039519379703064, guid: 3857a353bbda6054bbface9826231f71, type: 3}
+  m_PrefabInstance: {fileID: 1702767726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1740374478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,6 +2444,7 @@ MonoBehaviour:
   separators: 7c00
   treeList: {fileID: 1571390079}
   treeSpawner: {fileID: 1571390080}
+  createForestButton: {fileID: 1702767728}
 --- !u!1 &1960829783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3136,7 @@ MonoBehaviour:
   separators: 7c00
   treeList: {fileID: 1571390079}
   treeSpawner: {fileID: 1571390080}
+  createForestButton: {fileID: 2121915632}
 --- !u!1001 &2121915630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3256,6 +3270,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4507587774424380406, guid: 3857a353bbda6054bbface9826231f71, type: 3}
   m_PrefabInstance: {fileID: 2121915630}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121915632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1953039519379703064, guid: 3857a353bbda6054bbface9826231f71, type: 3}
+  m_PrefabInstance: {fileID: 2121915630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

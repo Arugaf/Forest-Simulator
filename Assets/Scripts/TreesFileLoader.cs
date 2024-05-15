@@ -5,15 +5,22 @@ using System.IO;
 using UnityEngine;
 using AnotherFileBrowser.Windows;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class TreesFileLoader : MonoBehaviour {
     [SerializeField] private char[] separators = { '|' };
     [SerializeField] private TreeList treeList;
     [SerializeField] private TreeSpawner treeSpawner;
 
+    [SerializeField] private Button createForestButton; 
+
     private List<Tree> _trees;
 
     public static event UnityAction GotSuccessfulTreeListLoad;
+
+    public void Start() {
+        createForestButton.interactable = false;
+    }
 
     public void OpenFileBrowser() {
         var bp = new BrowserProperties();
@@ -25,6 +32,8 @@ public class TreesFileLoader : MonoBehaviour {
             if (treeSpawner != null) {
                 treeSpawner.Initialize(_trees);
             }
+
+            createForestButton.interactable = true;
 
             GotSuccessfulTreeListLoad?.Invoke();
         });
