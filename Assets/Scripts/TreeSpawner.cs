@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class TreeSpawner : MonoBehaviour {
     public static TreeSpawner Instance;
+
+    public static event UnityAction GotTreesLoaded;
 
     [SerializeField] private TreeList treeList;
 
@@ -52,5 +55,6 @@ public class TreeSpawner : MonoBehaviour {
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name != "MainScene") return; // todo
         SpawnTrees();
+        GotTreesLoaded?.Invoke();
     }
 }
