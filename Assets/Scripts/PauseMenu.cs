@@ -16,6 +16,14 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuGroup.SetActive(false);
         Time.timeScale = 1;
         _active = false;
+        
+        ChangePauseMenuCanvasState();
+    }
+
+    public void ChangePauseMenuCanvasState() {
+        foreach (var go in objectsToPause) {
+            go.SetActive(!go.activeSelf);
+        }
     }
 
     public void OnDestroy() {
@@ -29,13 +37,10 @@ public class PauseMenu : MonoBehaviour {
             Time.timeScale = 0;
             // todo: freeze rotation
             _active = true;
+            ChangePauseMenuCanvasState();
         }
         else {
             ClosePauseMenu();
-        }
-
-        foreach (var go in objectsToPause) {
-            go.SetActive(!go.activeSelf);
         }
     }
 }
